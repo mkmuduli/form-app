@@ -1,13 +1,7 @@
-import { Input, DropDown, Multiple } from './Fields';
+import { fieldGeneration } from "./Fields";
 
-const GroupField = () => {
-    return (
-        <>
-            <Input label="FirstName" errorMsg="Input text is not a valid string" />
-            <DropDown label="FirstName" errorMsg="Input text is not a valid string" />
-            <Multiple label="Multiple Field" errorMsg="Input text is not a valid string" />
-        </>
-    )
+const GroupField = ({ value, onUpdate, errorMsgs }) => {
+    return fieldGeneration(value, onUpdate, errorMsgs)
 }
 
 export default GroupField;

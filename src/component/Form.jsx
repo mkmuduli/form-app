@@ -1,19 +1,14 @@
 import './Form.css'
-import './Field.css'
-import labelHoc from '../Hoc/labelHoc';
-import GroupField from './GroupField';
-import { Input, DropDown, Multiple } from './Fields';
-
-const Group = labelHoc(GroupField);
-
+import './Field.css';
+import { fieldGeneration } from './Fields';
+import { useForm } from '../hooks/useForm';
 
 const Form = () => {
+    const { fields, handelUpdate, errorMsgs } = useForm();
+
     return (
         <section className="form-container" >
-            <Input label="FirstName" errorMsg="Input text is not a valid string" />
-            <DropDown label="FirstName" errorMsg="Input text is not a valid string" />
-            <Multiple label="Multiple Field" errorMsg="Input text is not a valid string" />
-            <Group label="Group Field" />
+            {fieldGeneration(fields, handelUpdate, errorMsgs)}
             <button className='submit-btn' >Submit</button>
         </section>
     )
