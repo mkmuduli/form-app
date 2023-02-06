@@ -4,3 +4,14 @@
     max-width: 800px;
     margin: 20px auto;
 }
+
+.submit-btn{
+    min-width: 100px;
+    align-self: flex-start;
+    background-color: #777777;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}

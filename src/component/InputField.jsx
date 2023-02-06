@@ -1,6 +1,6 @@
-const InputField = () => {
+const InputField = ({ className}) => {
     return (
-        <input className='input-text-field' type="text" />
+        <input className={`${className||''} input-text-field`} type="text" />
     )
 }
 

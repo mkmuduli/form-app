@@ -9,6 +9,10 @@
      margin-bottom: 12px;
  }
 
+ .field-border{
+    border: 1px solid gray;
+ }
+
  .label-title {
      font-size: 14px;
      font-weight: 800;
@@ -36,6 +40,10 @@
  }
 
 
+ .radio-box{
+    display: flex;
+    flex-direction: column;
+ }
  .radio-box-item {
      margin-top: 8px;
      font-size: 12px;
@@ -54,4 +62,31 @@
 
  .select-box option {
      white-space: normal;
+ }
+
+
+ .multiple-box {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-top: 10px;
+ }
+
+ .icon-btn {
+    height: 26px;
+    width: 26px;
+ }
+
+ .sort-box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+ }
+
+ .sort-box button{
+    margin-left: 10px;
+ }
+ .sort-heading{
+    font-weight: 500;
+    font-size: 12px;
  }
