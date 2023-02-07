@@ -38,19 +38,69 @@ const sampleFormData = [
 
     {
 
+        "uid": "name125",
+
+        "data_type": "string",
+
+        "label": "URL",
+
+        "value": "",
+        "_metadata": {
+
+        }
+
+
+    },
+
+    {
+
+        "uid": "name124",
+
+        "data_type": "string",
+
+        "label": "URL",
+
+        "value": "",
+        "_metadata": {
+            "required": true,
+        }
+
+
+    },
+
+    {
+
         "uid": "name",
 
         "data_type": "string",
 
-        "label": "first Name",
+        "label": "URL",
 
-        "value": "test",
-
+        "value": "",
         "_metadata": {
 
-            "required": true
+            "is_url": true
 
         }
+
+
+    },
+
+    {
+
+        "uid": "name123",
+
+        "data_type": "string",
+
+        "label": "URL",
+
+        "value": [""],
+        "_metadata": {
+
+            "is_url": true,
+            "multiple": true
+        }
+
 
     },
 
@@ -84,11 +134,11 @@ const sampleFormData = [
 
     {
 
-        "uid": "group",
+        "uid": "groupuid2",
 
         "data_type": "group",
 
-        "label":"Group 1",
+        "label": "Group 1",
 
         "value": [
 
@@ -104,10 +154,10 @@ const sampleFormData = [
 
             {
 
-                "uid": "group",
+                "uid": "groupUid",
 
                 "data_type": "group",
-                "label": "group 2",
+                "label": "group2",
 
                 "value": [
 
@@ -127,8 +177,7 @@ const sampleFormData = [
 
                         "data_type": "number",
 
-                        "value": "28"
-
+                        "value": "",
                     }
 
                 ]
@@ -145,7 +194,10 @@ const sampleFormData = [
 
             }
 
-        ]
+        ],
+        "_metadata": {
+            "required": true
+        }
 
     }
 

@@ -1,4 +1,4 @@
-import { fieldGeneration } from "./Fields";
+import { fieldGeneration } from '../util/Fields';
 
 const GroupField = ({ value, onUpdate, errorMsgs }) => {
     return fieldGeneration(value, onUpdate, errorMsgs)

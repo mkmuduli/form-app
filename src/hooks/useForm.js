@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import sampleFormData from "../data";
 import produce from "immer";
+import { groupFieldValidator } from "../util/helper";
 
 export const useForm = () => {
     const [fields, setField] = useState([]);
@@ -8,24 +9,44 @@ export const useForm = () => {
 
     useEffect(() => {
         setField(sampleFormData);
-    },[]);
+    }, []);
 
     const handelUpdate = (index, value) => {
-        const filedId = fields[index]?.uid;
-        if(errorMsgs[filedId] && fields[index].data_type !== "group"){
-            const newErrorMsgs = produce(errorMsgs, draft => {
-                delete draft[filedId] ;
-            });
-            setErrorMsgs(newErrorMsgs)
-        }
-        const newState = produce(fields, draft => {
+        
+        const newFields = produce(fields, draft => {
             draft[index].value = value;
         });
-        setField(newState);
+        const filedId = newFields[index]?.uid;
+        
+        if (errorMsgs[filedId]) {
+            if (newFields[index].data_type !== "group") {
+                const newErrorMsgs = produce(errorMsgs, draft => {
+                    delete draft[filedId];
+                });
+                setErrorMsgs(newErrorMsgs)
+            }
+            if (newFields[index].data_type === "group") {
+                const err = groupFieldValidator(newFields[index]);
+                const newErrorMsgs = produce(errorMsgs, draft => {
+                    if (typeof err === "string" || Object.keys(err).length > 0) {
+                        draft[filedId] = err;
+                    } else {
+                        delete draft[filedId];
+                    }
+                });
+                setErrorMsgs(newErrorMsgs);
+            }
+
+        }
+        setField(newFields);
+    }
+
+    const handelUpdateError = (err) => {
+        setErrorMsgs(err);
     }
 
     return {
-        fields, handelUpdate,
+        fields, handelUpdate, handelUpdateError,
         errorMsgs,
     }
 }

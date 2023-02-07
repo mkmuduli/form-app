@@ -1,10 +1,10 @@
 
 import React from 'react';
 import labelHoc from '../Hoc/labelHoc';
-import InputField from './InputField';
-import DropDownField from './DropDown';
-import MultipleField from './MultipleField';
-import GroupField from './GroupField';
+import InputField from '../component/InputField';
+import DropDownField from '../component/DropDown';
+import MultipleField from '../component/MultipleField';
+import GroupField from '../component/GroupField';
 import produce from 'immer';
 
 export const Input = React.memo(labelHoc(InputField));
@@ -62,6 +62,3 @@ export const fieldGeneration = (fields, handelUpdate, errorMsgs = {}) => {
         }
     })
 }
-
-
-export const validator = () =>{}
